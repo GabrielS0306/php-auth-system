@@ -2,7 +2,7 @@
 
     // Inicia a sessão e inclui a conexão com o banco de dados
     session_start();
-    require_once '../DataBase/conexao.php';
+    require_once '../config/conexao.php';
 
     // Verifica se o método de requisição é POST
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -32,10 +32,10 @@
         exit;
     }
 
-    // hash da senha
+    // Hash da senha
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    // verifica email existente
+    // Verifica se email já existe
     $sql = "SELECT id FROM usuarios WHERE email = :email";
     $stmt = $conexao->prepare($sql);
     $stmt->bindParam(':email', $email);
@@ -46,12 +46,12 @@
         exit;
     }
 
-    // insere usuário
-    $sql = "INSERT INTO usuarios (username, email, password) VALUES (:username, :email, :password)";
+    $sql = "INSERT INTO usuarios (nome, email, senha) 
+            VALUES (:nome, :email, :senha)";
     $stmt = $conexao->prepare($sql);
-    $stmt->bindParam(':username', $user);
+    $stmt->bindParam(':nome', $user);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $hashed_password);
+    $stmt->bindParam(':senha', $hashed_password);
     $stmt->execute();
 
     header("Location: ../login.php");

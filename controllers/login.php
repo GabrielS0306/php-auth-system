@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    require_once '../DataBase/conexao.php';
+    require_once '../config/conexao.php';
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header("Location: ../login.php");
@@ -18,7 +18,7 @@
     }
 
     $stmt = $conexao->prepare("
-        SELECT id, username, email, password 
+        SELECT id, nome, email, senha 
         FROM usuarios 
         WHERE email = :email
     ");
@@ -26,9 +26,11 @@
     $stmt->execute([':email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($senha, $user['password'])) {
+    if ($user && password_verify($senha, $user['senha'])) {
+        session_regenerate_id(true);
+
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['usuario'] = $user['username'];
+        $_SESSION['usuario'] = $user['nome'];
         $_SESSION['email'] = $user['email']; // 🔥 agora funciona no dashboard
 
         header("Location: ../dashboard.php");

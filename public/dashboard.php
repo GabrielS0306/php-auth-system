@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-
-
     if (!isset($_SESSION['user_id'])) {
         header("Location: login.php");
         exit;
@@ -25,20 +23,50 @@
             <h2 class="logo">DevPanel</h2>
             <nav>
                 <ul>
-                    <li class="active">Dashboard</li>
-                    <li>Projetos</li>
-                    <li>Relatórios</li>
-                    <li>Configurações</li>
+                    <li class="active">
+                        <a href="">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="./projetos.php">
+                            Projetos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./relatorios.php">
+                            Relatórios
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./configuracoes.php">
+                            Configurações
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
         <div class="sidebar-bottom">
             <hr>
-            <div id="perfil">
-                <img src="https://i.pravatar.cc/40" alt="User">
-                <div>
-                    <p><?= htmlspecialchars($_SESSION['usuario']) ?></p>
-                    <p><?= htmlspecialchars($_SESSION['email']) ?? "Email não disponivel" ?></p>
+            <div id="perfil-container">
+                <div id="perfil">
+                    <div id="identificacao">
+                        <img src="https://i.pravatar.cc/40" alt="User">
+                        <p id="nome">
+                            <?= htmlspecialchars($_SESSION['usuario']) ?>
+                        </p>
+                    </div>
+                </div>
+                <div id="perfil-menu">
+                    <p class="email">
+                        <?= htmlspecialchars($_SESSION['email']) ?>
+                    </p>
+                    <hr>
+                    <a href="#">
+                        Meu Perfil
+                    </a>
+                    <a href="./configuracoes.php">
+                        Configurações
+                    </a>
+                    <a href="logout.php">Sair</a>
                 </div>
             </div>
         </div>
@@ -58,7 +86,8 @@
                 </button>
                 <div class="user">
                     <a href="logout.php" class="logout" onclick="return confirm('Tem certeza que deseja sair?')">
-                        <i class="fa-solid fa-right-from-bracket"></i> Sair
+                        <i class="fa-solid fa-right-from-bracket"></i> 
+                        Sair
                     </a>
                 </div>
             </div>
