@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
     <title>Relatórios</title>
-    <link rel="stylesheet" href="../assets/styles/dashboard.css">
+    <link rel="stylesheet" href="../assets/styles/dashboard_adm.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -203,7 +203,7 @@
                 <div class="quick-card">
                     <h3>Gerenciar Usuários</h3>
                     <p>Controle os usuários do sistema.</p>
-                    <a href="#">
+                    <a href="usuarios.php">
                         Gerenciar
                     </a>
                 </div>

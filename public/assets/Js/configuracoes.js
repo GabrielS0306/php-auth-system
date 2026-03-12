@@ -1,3 +1,4 @@
+// Configurações de tema e outras preferências do usuário
 document.addEventListener("DOMContentLoaded", () => {
 
     const toggleButton = document.getElementById("toggleTheme");
@@ -21,5 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("theme", "light");
         }
     });
+});
 
+// Mudança de senha - validação simples
+document.querySelectorAll('.toggle-password').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const input = document.getElementById(icon.dataset.target);
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {    
+            input.type = 'password';
+            icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+    });
 });

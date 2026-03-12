@@ -335,6 +335,22 @@ th,td{
     text-align:left;
 }
 
+table > tbody > tr > #funcoes-table-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+table > tbody > tr > td i {
+    font-size:1.1rem;
+    color: var(--accent-color);
+    transition: all .2s ease;
+}
+
+table > tbody > tr > td i:hover {
+    color: var(--accent-color-hover);
+}
+
 th{
     background:var(--gray-light);
 }

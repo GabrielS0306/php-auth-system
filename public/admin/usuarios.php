@@ -1,17 +1,7 @@
 <?php 
 
     require_once __DIR__ . '/../../middlewares/admin.php';
-    require_once __DIR__ . '/../../config/conexao.php'; 
-
-    // Buscando usuarios do banco
-    $stmt = $conexao->query("
-        SELECT id, nome, email, role
-        FROM usuarios
-        ORDER BY id DESC
-    ");
-
-    // Transformando resultado em array associativo
-    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    require_once __DIR__ . '/../../controllers/usuariosController.php';
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Usuários</title>
-    <link rel="stylesheet" href="../assets/styles/dashboard.css">
+    <link rel="stylesheet" href="../assets/styles/dashboard_adm.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -101,7 +91,7 @@
             <div class="card">
                 <h3>Total de Usuários</h3>
                 <p class="number">
-                    <?= count($usuarios) ?>
+                    <?= $totalUsuarios ?>
                 </p>
             </div>
 
@@ -109,7 +99,7 @@
             <div class="card">
                 <h3>Admins</h3>
                 <p class="number">
-                    <?= count(array_filter($usuarios, fn($u) => $u['role'] === 'admin')) ?>
+                    <?= $totalAdmins ?>
                 </p>
             </div>
 
@@ -117,7 +107,7 @@
             <div class="card">
                 <h3>Usuários</h3>
                 <p class="number">
-                    <?= count(array_filter($usuarios, fn($u) => $u['role'] === 'user')) ?>
+                    <?= $totalUsers ?>
                 </p>
             </div>
         </section>
@@ -128,7 +118,8 @@
             <div style="display:flex; justify-content:space-between; align-items:center;">
                 <h2>Lista de Usuários</h2>
                 <a href="criar_usuario.php" class="logout">
-                    <i class="fa fa-plus"></i> Novo Usuário
+                    <i class="fa fa-plus"></i> 
+                    Novo Usuário
                 </a>
             </div>
 
@@ -172,17 +163,25 @@
                             </td>
 
                             <!-- Cell com ações (editar e deletar) -->
-                            <td>
+                            <td id="funcoes-table-section">
                                 <a href="editar_usuario.php?id=<?= $usuario['id'] ?>">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                &nbsp;
+
                                 <a href="../../actions/deletar_usuario.php?id=<?= $usuario['id'] ?>" onclick="return confirm('Deseja excluir este usuário?')">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
+
+                    <?php if(empty($usuarios)): ?>
+                        <tr>
+                            <td colspan="5" style="text-align:center;">
+                                Nenhum usuário encontrado
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </section>

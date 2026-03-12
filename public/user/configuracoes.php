@@ -25,18 +25,21 @@
                     <!-- Item de menu: Projetos -->
                     <li>
                         <a href="projetos.php">
+                            <i class="fa-solid fa-diagram-project"></i>
                             Projetos
                         </a>
                     </li>
                     <!-- Item de menu: Relatórios -->
                     <li>
                         <a href="relatorios.php">
+                            <i class="fa-regular fa-chart-bar"></i>
                             Relatórios
                         </a>
                     </li>
                     <!-- Item de menu: Configurações (ativo) -->
                     <li class="active">
                         <a href="configuracoes.php">
+                            <i class="fa-solid fa-gear"></i>
                             Configurações
                         </a>
                     </li>
@@ -83,21 +86,34 @@
         <!-- Seção principal com formulário de configurações -->
         <section class="table-section">
             <!-- Formulário para salvar alterações de configuração -->
-            <form method="POST" action="salvar_config.php" class="settings-form">
+            <form method="POST" action="../../controllers/configs_user.php" class="settings-form">
                 <!-- Campo para alterar nome -->
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" name="nome" value="<?= htmlspecialchars($_SESSION['usuario']) ?>">
                 </div>
+
                 <!-- Campo para alterar email -->
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" value="<?= htmlspecialchars($_SESSION['email']) ?>">
                 </div>
-                <!-- Campo para alterar senha -->
-                <div class="form-group">
+
+                <!-- Campos para alterar senha -->
+                <div class="form-group password-group">
                     <label>Nova Senha</label>
-                    <input type="password" name="senha" placeholder="Digite uma nova senha">
+                    <div class="password-wrapper">
+                        <input type="password" id="nova_senha" name="nova_senha" placeholder="Digite uma nova senha">
+                        <i class="fa-solid fa-eye toggle-password" data-target="nova_senha"></i>
+                    </div>
+                </div>
+
+                <div class="form-group password-group">
+                    <label>Confirmar Nova Senha</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmar_nova_senha" name="confirmar_nova_senha" placeholder="Confirme a nova senha">
+                        <i class="fa-solid fa-eye toggle-password" data-target="confirmar_nova_senha"></i>
+                    </div>
                 </div>
                 <!-- Botão para enviar formulário -->
                 <button type="submit" class="logout">

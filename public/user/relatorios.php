@@ -16,10 +16,33 @@
             <!-- Menu de navegação principal -->
             <nav>
                 <ul>
-                    <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="projetos.php">Projetos</a></li>
-                    <li class="active"><a href="relatorios.php">Relatórios</a></li>
-                    <li><a href="configuracoes.php">Configurações</a></li>
+                    <!-- Item de menu: Dashboard -->
+                    <li>
+                        <a href="dashboard.php">
+                            Dashboard
+                        </a>
+                    </li>
+                    <!-- Item de menu: Projetos -->
+                    <li>
+                        <a href="projetos.php">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            Projetos
+                        </a>
+                    </li>
+                    <!-- Item de menu: Relatórios -->
+                    <li class="active">
+                        <a href="relatorios.php">
+                            <i class="fa-regular fa-chart-bar"></i>
+                            Relatórios
+                        </a>
+                    </li>
+                    <!-- Item de menu: Configurações (ativo) -->
+                    <li>
+                        <a href="configuracoes.php">
+                            <i class="fa-solid fa-gear"></i>
+                            Configurações
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

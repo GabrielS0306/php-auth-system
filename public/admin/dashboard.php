@@ -1,113 +1,52 @@
-<?php require_once __DIR__ . '/../../middlewares/admin.php'; ?>
+<?php 
+
+    require_once __DIR__ . '/../../middlewares/admin.php'; 
+    require_once __DIR__ . '/../../controllers/usuariosController.php'; 
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="../assets/styles/dashboard.css">
+    <link rel="stylesheet" href="../assets/styles/dashboard_adm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
     <!-- Barra lateral de navegação -->
-    <aside class="sidebar">
-        <!-- Seção Superior -> logo e Menu -->
-        <div class="sidebar-top">
-            <h2 class="logo">DevPanel</h2>
-            <!-- Menu de navegação principal -->
-            <nav>
-                <ul>
-                    <li class="active">
-                        <a href="./dashboard.php">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="./usuarios.php">
-                            <i class="fa-solid fa-users"></i> 
-                            Usuários
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./projetos.php">
-                            <i class="fa-solid fa-diagram-project"></i> 
-                            Projetos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./relatorios.php">
-                            <i class="fa-solid fa-chart-line"></i> 
-                            Relatórios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./configuracoes.php">
-                            <i class="fa-solid fa-gear"></i> 
-                            Configurações
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <!-- Seção inferior -> Perfil do usuário -->
-        <div class="sidebar-bottom">
-            <hr>
-            <div id="perfil-container">
-                <!-- Informações do perfil -->
-                <div id="perfil">
-                    <div id="identificacao">
-                        <img src="https://i.pravatar.cc/40" alt="User">
-                        <p id="nome">
-                            <?= htmlspecialchars($_SESSION['usuario']) ?>
-                        </p>
-                    </div>
-                </div>
-                <!-- Menu de ações do perfil -->
-                <div id="perfil-menu">
-                    <p class="email">
-                        <?= htmlspecialchars($_SESSION['email']) ?>
-                    </p>
-                    <hr>
-                    <a href="#">Meu Perfil</a>
-                    <a href="./configuracoes.php">Configurações</a>
-                    <a href="../logout.php">Sair</a>
-                </div>
-            </div>
-        </div>
-    </aside>
-
+    <?php require_once __DIR__ . '/../../components/sidebar.php'; ?>
+    
     <!-- Conteúdo Principal -->
     <div class="main-content">
         <!-- Barra superior com título e ações -->
-        <header class="topbar">
-            <div>
-                <h1>Painel Administrativo</h1>
-                <p>Gerencie usuários e acompanhe o sistema</p>
-            </div>
-            <div class="top-actions">
-                <!-- Botão para alternar tema (claro/escuro) -->
-                <button id="toggleTheme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-        </header>
+        <?php require_once __DIR__ . '/../../components/topbar.php'; ?>
 
         <!-- Cards de Estatísticas -->
         <section class="cards">
             <div class="card">
                 <h3>Total de Usuários</h3>
-                <p class="number">24</p>
+                <p class="number">
+                    <?= $totalUsuarios ?>
+                </p>
             </div>
             <div class="card">
                 <h3>Administradores</h3>
-                <p class="number">3</p>
+                <p class="number">
+                    <?= $totalAdmins ?>
+                </p>
             </div>
             <div class="card">
                 <h3>Projetos Ativos</h3>
-                <p class="number">12</p>
+                <p class="number">
+                    <?= $totalProjetosAtivos ?>
+                </p>
             </div>
             <div class="card highlight">
                 <h3>Projetos Concluídos</h3>
-                <p class="number">8</p>
+                <p class="number">
+                    <?= $totalProjetosConcluidos ?>
+                </p>
             </div>
         </section>
 
@@ -125,12 +64,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Gabriel</td>
-                        <td>gabriel@email.com</td>
+                        <td><?= htmlspecialchars($_SESSION['usuario']) ?></td>
+                        <td><?= htmlspecialchars($_SESSION['email']) ?></td>
                         <td>
-                            <span class="status done">Admin</span>
+                            <span class="status done"><?= htmlspecialchars($_SESSION['role']) ?></span>
                         </td>
-                        <td>05/03/2026</td>
+                        <td><?php echo date('d/m/Y'); ?></td>
                     </tr>
                     <tr>
                         <td>Maria</td>

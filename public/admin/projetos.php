@@ -5,64 +5,13 @@
     <meta charset="UTF-8">
     <title>Projetos</title>
     <!-- css -->
-    <link rel="stylesheet" href="../assets/styles/dashboard.css">
+    <link rel="stylesheet" href="../assets/styles/dashboard_adm.css">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Barra lateral -->
-    <aside class="sidebar">
-        <!-- Seção superior da sidebar -->
-        <div class="sidebar-top">
-            <h2 class="logo">DevPanel</h2>
-            <!-- Menu de navegação principal -->
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./dashboard.php">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="./usuarios.php">
-                            <i class="fa-solid fa-users"></i> 
-                            Usuários
-                        </a>
-                    </li>
-                    <!-- Item ativo (página atual) -->
-                    <li class="active">
-                        <a href="./projetos.php">
-                            <i class="fa-solid fa-diagram-project"></i> 
-                            Projetos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./relatorios.php">
-                            <i class="fa-solid fa-chart-line"></i> 
-                            Relatórios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./configuracoes.php">
-                            <i class="fa-solid fa-gear"></i> 
-                            Configurações
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <!-- Seção inferior da sidebar com identificação do usuário -->
-        <div class="sidebar-bottom">
-            <hr>
-            <div id="perfil">
-                <!-- Informações do usuário logado -->
-                <div id="identificacao">
-                    <img src="https://i.pravatar.cc/40" alt="User">
-                    <p id="nome">
-                        <?= htmlspecialchars($_SESSION['usuario']) ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </aside>
+    <?php require_once __DIR__ . '/../../components/sidebar.php'; ?>
     
     <!-- Conteúdo principal da página -->
     <div class="main-content">
