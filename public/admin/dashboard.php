@@ -15,7 +15,10 @@
 </head>
 <body>
     <!-- Barra lateral de navegação -->
-    <?php require_once __DIR__ . '/../../components/sidebar.php'; ?>
+    <?php 
+        $activePage = "dashboard";
+        require_once __DIR__ . '/../../components/sidebar.php'; 
+    ?>
     
     <!-- Conteúdo Principal -->
     <div class="main-content">
@@ -30,18 +33,21 @@
                     <?= $totalUsuarios ?>
                 </p>
             </div>
+
             <div class="card">
                 <h3>Administradores</h3>
                 <p class="number">
                     <?= $totalAdmins ?>
                 </p>
             </div>
+
             <div class="card">
                 <h3>Projetos Ativos</h3>
                 <p class="number">
                     <?= $totalProjetosAtivos ?>
                 </p>
             </div>
+
             <div class="card highlight">
                 <h3>Projetos Concluídos</h3>
                 <p class="number">
@@ -51,45 +57,10 @@
         </section>
 
         <!-- Tabela -> Últimos usuários registrados -->
-        <section class="table-section">
-            <h2>Últimos Usuários Registrados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Tipo</th>
-                        <th>Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><?= htmlspecialchars($_SESSION['usuario']) ?></td>
-                        <td><?= htmlspecialchars($_SESSION['email']) ?></td>
-                        <td>
-                            <span class="status done"><?= htmlspecialchars($_SESSION['role']) ?></span>
-                        </td>
-                        <td><?php echo date('d/m/Y'); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Maria</td>
-                        <td>maria@email.com</td>
-                        <td>
-                            <span class="status progress">User</span>
-                        </td>
-                        <td>04/03/2026</td>
-                    </tr>
-                    <tr>
-                        <td>João</td>
-                        <td>joao@email.com</td>
-                        <td>
-                            <span class="status progress">User</span>
-                        </td>
-                        <td>03/03/2026</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <?php 
+            $ultimosUsuarios = TRUE;
+            include_once __DIR__ . "/../../components/table.php"; 
+        ?>
 
         <!-- Seção -> Ações rápidas de gerenciamento -->
         <section class="table-section">

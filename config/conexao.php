@@ -6,7 +6,7 @@
         $dbname = "auth_system";
         $user = "root";
         // Sua senha MySql (caso tenha)
-        $password = "";
+        $password = "@Biel03062008";
 
         $conexao = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
 

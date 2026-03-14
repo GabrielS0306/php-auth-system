@@ -10,72 +10,19 @@
 </head>
 <body>
     <!-- Sidebar - Navegação lateral com menu principal e perfil do usuário -->
-    <aside class="sidebar">
-        <div class="sidebar-top">
-            <h2 class="logo">DevPanel</h2>
-            <!-- Barra de navegação principal -->
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./dashboard.php">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="./usuarios.php">
-                            <i class="fa-solid fa-users"></i> 
-                            Usuários
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./projetos.php">
-                            <i class="fa-solid fa-diagram-project"></i> 
-                            Projetos
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="./relatorios.php">
-                            <i class="fa-solid fa-chart-line"></i> 
-                            Relatórios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./configuracoes.php">
-                            <i class="fa-solid fa-gear"></i> 
-                            Configurações
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <!-- Seção inferior da sidebar com informações do usuário logado -->
-        <div class="sidebar-bottom">
-            <hr>
-            <div id="perfil">
-                <div id="identificacao">
-                    <img src="https://i.pravatar.cc/40" alt="User">
-                    <p id="nome">
-                        <?= htmlspecialchars($_SESSION['usuario']) ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </aside>
+    <?php 
+        $activePage = "relatorios";
+        require_once __DIR__ . '/../../components/sidebar.php'; 
+    ?>
 
     <!-- Conteúdo principal da página -->
     <div class="main-content">
         <!-- Barra superior com título da página e botões de ação -->
-        <header class="topbar">
-            <div>
-                <h1>Relatórios</h1>
-                <p>Visão geral do desempenho dos projetos</p>
-            </div>
-
-            <div class="top-actions">
-                <button id="toggleTheme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-        </header>
+        <?php
+            $pageTitle = "Relatórios do Administrador";
+            $pageDescription = "Gerencie e acompanhe os relatórios do sistema";
+            include_once __DIR__ . "/../../components/topbar.php"; 
+        ?>
 
         <!-- Cards de estatísticas - Exibe resumo de dados dos projetos -->
         <section class="cards">

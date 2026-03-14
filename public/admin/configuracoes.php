@@ -18,7 +18,12 @@
 
     <main class="main-content">
         <!-- Topbar -->
-        <?php require_once __DIR__ . '/../../components/topbar.php'; ?>
+        <?php
+            $pageTitle = "Configurações do Administrador";
+            $pageDescription = "Gerencie as configurações do sistema";
+            include_once __DIR__ . "/../../components/topbar.php"; 
+        ?>
+
         <section class="settings-container">
             <div class="settings-card">
                 <h2>Perfil</h2>

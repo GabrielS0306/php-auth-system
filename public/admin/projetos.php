@@ -11,32 +11,15 @@
 </head>
 <body>
     <!-- Barra lateral -->
-    <?php require_once __DIR__ . '/../../components/sidebar.php'; ?>
+    <?php 
+        $activePage = "projetos";
+        require_once __DIR__ . '/../../components/sidebar.php'; 
+    ?>
     
     <!-- Conteúdo principal da página -->
     <div class="main-content">
         <!-- Barra superior (TopBar) com título e ações -->
-        <header class="topbar">
-            <!-- Informações da página -->
-            <div>
-                <h1>Meus Projetos</h1>
-                <p>Gerencie seus projetos cadastrados</p>
-            </div>
-
-            <!-- Botões de ação do topo -->
-            <div class="top-actions">
-                <!-- Botão para alternar tema (claro/escuro) -->
-                <button id="toggleTheme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-
-                <!-- Botão para criar novo projeto -->
-                <a href="#" class="logout">
-                    <i class="fa-solid fa-plus"></i> 
-                    Novo Projeto
-                </a>
-            </div>
-        </header>
+        <?php require_once __DIR__ . '/../../components/topbar.php'; ?>
         
         <!-- Seção de cards exibindo os projetos -->
         <section class="cards">
