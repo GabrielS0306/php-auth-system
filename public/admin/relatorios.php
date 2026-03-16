@@ -12,7 +12,7 @@
     <!-- Sidebar - Navegação lateral com menu principal e perfil do usuário -->
     <?php 
         $activePage = "relatorios";
-        require_once __DIR__ . '/../../components/sidebar.php'; 
+        require_once __DIR__ . '/../../components/admin/sidebar.php'; 
     ?>
 
     <!-- Conteúdo principal da página -->
@@ -21,7 +21,7 @@
         <?php
             $pageTitle = "Relatórios do Administrador";
             $pageDescription = "Gerencie e acompanhe os relatórios do sistema";
-            include_once __DIR__ . "/../../components/topbar.php"; 
+            include_once __DIR__ . "/../../components/admin/topbar.php"; 
         ?>
 
         <!-- Cards de estatísticas - Exibe resumo de dados dos projetos -->

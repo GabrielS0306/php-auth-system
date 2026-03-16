@@ -17,13 +17,13 @@
     <!-- Barra lateral de navegação -->
     <?php 
         $activePage = "dashboard";
-        require_once __DIR__ . '/../../components/sidebar.php'; 
+        require_once __DIR__ . '/../../components/admin/sidebar.php'; 
     ?>
     
     <!-- Conteúdo Principal -->
     <div class="main-content">
         <!-- Barra superior com título e ações -->
-        <?php require_once __DIR__ . '/../../components/topbar.php'; ?>
+        <?php require_once __DIR__ . '/../../components/admin/topbar.php'; ?>
 
         <!-- Cards de Estatísticas -->
         <section class="cards">
@@ -59,7 +59,7 @@
         <!-- Tabela -> Últimos usuários registrados -->
         <?php 
             $ultimosUsuarios = TRUE;
-            include_once __DIR__ . "/../../components/table.php"; 
+            include_once __DIR__ . "/../../components/admin/table.php"; 
         ?>
 
         <!-- Seção -> Ações rápidas de gerenciamento -->

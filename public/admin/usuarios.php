@@ -17,7 +17,7 @@
     <!-- Menu lateral com navegação e perfil do usuário -->
     <?php 
         $activePage = "usuarios";
-        include_once __DIR__ . "/../../components/sidebar.php"; 
+        include_once __DIR__ . "/../../components/admin/sidebar.php"; 
     ?>
 
     <!-- Conteúdo principal -->
@@ -26,7 +26,7 @@
         <?php 
             $pageTitle = "Gerenciamento de usuários";
             $pageDescription = "Gerencie os usuário do sistema";
-            include_once __DIR__ . "/../../components/topbar.php"; 
+            include_once __DIR__ . "/../../components/admin/topbar.php"; 
         ?>
 
         <!-- Cards com estatísticas de usuários -->
@@ -70,7 +70,7 @@
             <!-- Tabela com dados dos usuários -->
             <?php 
                 $ultimosUsuarios = FALSE;
-                include_once __DIR__ . "/../../components/table.php";
+                include_once __DIR__ . "/../../components/admin/table.php";
             ?>
         </section>
     </div>

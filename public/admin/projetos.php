@@ -13,13 +13,13 @@
     <!-- Barra lateral -->
     <?php 
         $activePage = "projetos";
-        require_once __DIR__ . '/../../components/sidebar.php'; 
+        require_once __DIR__ . '/../../components/admin/sidebar.php'; 
     ?>
     
     <!-- Conteúdo principal da página -->
     <div class="main-content">
         <!-- Barra superior (TopBar) com título e ações -->
-        <?php require_once __DIR__ . '/../../components/topbar.php'; ?>
+        <?php require_once __DIR__ . '/../../components/admin/topbar.php'; ?>
         
         <!-- Seção de cards exibindo os projetos -->
         <section class="cards">

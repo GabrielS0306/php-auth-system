@@ -9,56 +9,7 @@
 </head>
 <body>
     <!-- Barra lateral de navegação -->
-    <aside class="sidebar">
-        <!-- Seção superior da sidebar com logo e menu -->
-        <div class="sidebar-top">
-            <h2 class="logo">DevPanel</h2>
-            <!-- Menu de navegação principal -->
-            <nav>
-                <ul>
-                    <!-- Item de menu: Dashboard -->
-                    <li>
-                        <a href="dashboard.php">
-                            Dashboard
-                        </a>
-                    </li>
-                    <!-- Item de menu: Projetos -->
-                    <li>
-                        <a href="projetos.php">
-                            <i class="fa-solid fa-diagram-project"></i>
-                            Projetos
-                        </a>
-                    </li>
-                    <!-- Item de menu: Relatórios -->
-                    <li class="active">
-                        <a href="relatorios.php">
-                            <i class="fa-regular fa-chart-bar"></i>
-                            Relatórios
-                        </a>
-                    </li>
-                    <!-- Item de menu: Configurações (ativo) -->
-                    <li>
-                        <a href="configuracoes.php">
-                            <i class="fa-solid fa-gear"></i>
-                            Configurações
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <!-- Seção inferior da sidebar com informações do usuário -->
-        <div class="sidebar-bottom">
-            <hr>
-            <div id="perfil">
-                <!-- Identificação do usuário logado -->
-                <div id="identificacao">
-                    <img src="https://i.pravatar.cc/40" alt="User">
-                    <p id="nome"><?= htmlspecialchars($_SESSION['usuario']) ?></p>
-                </div>
-            </div>
-        </div>
-    </aside>
+    <?php include_once __DIR__ . "/../../components/user/sidebar.php"; ?>
 
     <!-- Conteúdo principal da página -->
     <div class="main-content">
@@ -143,6 +94,7 @@
         </section>
     </div>
 
+    <script src="../assets/js/perfil_content.js"></script>
     <script src="../assets/Js/toggleTheme.js"></script>
 </body>
 </html>
