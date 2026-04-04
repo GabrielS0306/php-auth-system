@@ -1,0 +1,19 @@
+{
+    "name": "gabriel/php-auth-system",
+    "description": "Sistema de autenticação em php",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel.S",
+            "email": "166333566+GabrielS0306@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
