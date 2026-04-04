@@ -3,9 +3,12 @@
     // Conexão com o banco de dados
     try {
         $host = "localhost";
-        $port = "3307";
-        $dbname = "php_auth_system";
-        $user = "root";
+        // sua porta MySql (caso tenha)
+        $port = "";
+        // O nome do seu banco de dados
+        $dbname = "";
+        // Seu usuário MySql (caso tenha)
+        $user = "";
         // Sua senha MySql (caso tenha)
         $password = "";
 
