@@ -1,1 +1,5 @@
 /vendor/
+/config/conexao.php
+/config/config.php
+composer.lock
+composer.json
