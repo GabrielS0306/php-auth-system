@@ -1,7 +1,13 @@
 <?php 
 
     function asset($path) {
-        return BASE_URL . 'assets/' . $path;
+        $path = ltrim($path, '/');
+
+        if (stripos($path, 'js/') === 0) {
+            $path = 'Js/' . substr($path, 3);
+        }
+
+        return rtrim(BASE_URL, '/') . '/assets/' . $path;
     }
 
     function setFlash($type, $message) {

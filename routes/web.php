@@ -48,6 +48,27 @@ $loadUsersData = function (): array {
     ];
 };
 
+$redirectTo = function (string $path): callable {
+    return function () use ($path): void {
+        header('Location: ' . BASE_URL . ltrim($path, '/'));
+        exit;
+    };
+};
+
+$router->get('Login.php', $redirectTo('login'));
+$router->get('login.php', $redirectTo('login'));
+$router->get('register.php', $redirectTo('register'));
+$router->get('logout.php', $redirectTo('logout'));
+$router->get('user/dashboard.php', $redirectTo('dashboard'));
+$router->get('user/projetos.php', $redirectTo('projetos'));
+$router->get('user/relatorios.php', $redirectTo('relatorios'));
+$router->get('user/configuracoes.php', $redirectTo('configuracoes'));
+$router->get('admin/dashboard.php', $redirectTo('admin'));
+$router->get('admin/usuarios.php', $redirectTo('admin/usuarios'));
+$router->get('admin/projetos.php', $redirectTo('admin/projetos'));
+$router->get('admin/relatorios.php', $redirectTo('admin/relatorios'));
+$router->get('admin/configuracoes.php', $redirectTo('admin/configuracoes'));
+
 $router->get('/', function () {
     if (isset($_SESSION['user_id'])) {
         header('Location: ' . BASE_URL . 'dashboard');

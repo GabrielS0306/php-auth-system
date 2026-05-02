@@ -70,7 +70,7 @@
         </section>
     </div>
 
-    <script src="../assets/js/configuracoes.js"></script>
-    <script src="../assets/js/perfil_content.js"></script>
+    <script src="../assets/Js/configuracoes.js"></script>
+    <script src="../assets/Js/perfil_content.js"></script>
 </body>
 </html>

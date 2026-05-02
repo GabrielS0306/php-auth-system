@@ -10,6 +10,12 @@
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 require __DIR__ . '/../../config/conexao.php';
 
+                if (!$conexao instanceof PDO) {
+                    setFlash('error', 'Nao foi possivel conectar ao banco de dados.');
+                    header("Location: " . BASE_URL . "login");
+                    exit;
+                }
+
                 $email = trim($_POST['email'] ?? '');
                 $senha = $_POST['password'] ?? '';
 
@@ -62,6 +68,12 @@
             }
 
             require __DIR__ . '/../../config/conexao.php';
+
+            if (!$conexao instanceof PDO) {
+                setFlash('error', 'Nao foi possivel conectar ao banco de dados.');
+                header("Location: " . BASE_URL . "register");
+                exit;
+            }
 
             // Captura dados
             $user = trim($_POST['user'] ?? '');
@@ -125,6 +137,12 @@
             }
 
             require __DIR__ . '/../../config/conexao.php';
+
+            if (!$conexao instanceof PDO) {
+                setFlash('error', 'Nao foi possivel conectar ao banco de dados.');
+                header("Location: " . BASE_URL . "configuracoes");
+                exit;
+            }
 
             if (!isset($_SESSION['user_id'])) {
                 header("Location: " . BASE_URL . "login");

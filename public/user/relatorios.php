@@ -94,7 +94,7 @@
         </section>
     </div>
 
-    <script src="../assets/js/perfil_content.js"></script>
+    <script src="../assets/Js/perfil_content.js"></script>
     <script src="../assets/Js/toggleTheme.js"></script>
 </body>
 </html>

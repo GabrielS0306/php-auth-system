@@ -1,22 +1,18 @@
-<?php 
+<?php
 
-    // Conexão com o banco de dados
     try {
         $host = "localhost";
-        // sua porta MySql (caso tenha)
-        $port = "";
-        // O nome do seu banco de dados
-        $dbname = "";
-        // Seu usuário MySql (caso tenha)
-        $user = "";
-        // Sua senha MySql (caso tenha)
+        $port = "3306";
+        $dbname = "dev_panel";
+        $user = "root";
         $password = "";
 
-        $conexao = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $password);
+        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+        $conexao = new PDO($dsn, $user, $password);
 
         $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo "Erro na conexão: " . $e->getMessage();
+        error_log("Erro na conexao com o banco: " . $e->getMessage());
+        $conexao = null;
     }
-
-?>

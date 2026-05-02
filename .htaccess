@@ -1,7 +1,6 @@
 RewriteEngine On
 
-RewriteRule ^assets/(.*)$ Public/assets/$1 [L]
+RewriteRule ^assets/js/(.*)$ public/assets/Js/$1 [L,NC]
+RewriteRule ^assets/(.*)$ public/assets/$1 [L,NC]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ Public/index.php [QSA,L]
+RewriteRule ^ public/index.php [QSA,L]

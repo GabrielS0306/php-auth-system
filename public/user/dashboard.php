@@ -110,6 +110,6 @@
     </div>
 
     <script src="../assets/Js/dashboard.js"></script>
-    <script src="../assets/js/perfil_content.js"></script>
+    <script src="../assets/Js/perfil_content.js"></script>
 </body>
 </html>
